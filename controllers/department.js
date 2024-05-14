@@ -69,12 +69,12 @@ const createDepartment = async (req, res) => {
 };
 const updateDepartment = async (req, res) => {
   const departmentId = new ObjectId(req.params.id);
-  const employee = req.body.employeeIds
+  const department = req.body
   const response = await mongodb
     .getDatabase()
     .db(DATABASE)
     .collection(COLLECTION_NAME)
-    .replaceOne({ _id: departmentId }, employee);
+    .replaceOne({ _id: departmentId }, department);
   console.log('response: ' + JSON.stringify(response));
   if (response.modifiedCount > 0) {
     res.status(204).send();

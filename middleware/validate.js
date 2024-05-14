@@ -28,6 +28,7 @@ const employee = (req, res, next) => {
 const department = (req, res, next) => {
   let passValidation = true;
   const validationRule = {
+    Name: 'required|string',
     employeeIds: 'array'
   }
 
